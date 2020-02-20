@@ -23,8 +23,12 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            ListFemme.Items.Add("Noémie");
-            ListFemme.Items.Add("Margaux");
+            string[] lines = System.IO.File.ReadAllLines(@"Femmes.txt");
+
+            foreach (string item in lines)
+            {
+                ListFemme.Items.Add(item);
+            }
         }
 
         private void ButtonJeremCharo_Click(object sender, RoutedEventArgs e)
@@ -47,18 +51,21 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string temp = (string)ListFemme.SelectedItem;
-            if (temp == "Noémie")
+            switch (temp)
             {
-                LabelFemme.Content = "Jerem est sage ajd";
-                ListFemme.IsEnabled = false;
-                LabelFemme.Visibility = Visibility.Visible;
+                case "Noémie":
+                    LabelFemme.Content = "Jerem est sage ajd";
+                    break;
+
+                case "Margaux":
+                    LabelFemme.Content = "Pas bien!!!";
+                    break;
+                default:
+                    return;
             }
-            else if(temp == "Margaux")
-            {
-                LabelFemme.Content = "Pas bien!!!";
-                ListFemme.IsEnabled = false;
-                LabelFemme.Visibility = Visibility.Visible;
-            }      
+
+            ListFemme.IsEnabled = false;
+            LabelFemme.Visibility = Visibility.Visible;
         }
     }
 }
