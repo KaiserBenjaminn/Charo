@@ -12,6 +12,7 @@
         <ComboBox x:Name="ListFemme" HorizontalAlignment="Left" Height="26" Margin="206,76,0,0" VerticalAlignment="Top" Width="251" SelectionChanged="ComboBox_SelectionChanged" Visibility="Hidden"/>
         <Button x:Name="ValiderFemme" Content="Valider" HorizontalAlignment="Left" Height="23" Margin="462,76,0,0" VerticalAlignment="Top" Width="61" Click="Button_Click" Visibility="Hidden"/>
         <Label x:Name="LabelFemme" Content="Label" HorizontalAlignment="Left" Margin="206,107,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="LabelTest" Content="Label" HorizontalAlignment="Left" Margin="222,224,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

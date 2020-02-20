@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace WpfApp1
 {
@@ -23,12 +26,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            string[] lines = System.IO.File.ReadAllLines(@"Femmes.txt");
 
-            foreach (string item in lines)
-            {
-                ListFemme.Items.Add(item);
-            }
         }
 
         private void ButtonJeremCharo_Click(object sender, RoutedEventArgs e)
@@ -66,6 +64,18 @@ namespace WpfApp1
 
             ListFemme.IsEnabled = false;
             LabelFemme.Visibility = Visibility.Visible;
+        }
+        private void createJson()
+        {
+            List<Femme> colFem = new List<Femme>();
+
+            colFem.Add(new Femme("Peppels", "Noémie", new DateTime(1999, 02, 16), "Le tyran"));
+            colFem.Add(new Femme("Loiseau", "Margaux", new DateTime(2001, 12, 26), "Le coup de plusieurs soirs"));
+
+            JsonSerializer serializer = new JsonSerializer();
+            string output = JsonConvert.SerializeObject(colFem);
+            using (StreamWriter writer = File.CreateText("data.json"))
+                serializer.Serialize(writer, output);
         }
     }
 }
