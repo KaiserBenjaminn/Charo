@@ -136,5 +136,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FemmeLib\FemmeLib.csproj">
+      <Project>{7c081395-133c-4314-a186-734043b882dd}</Project>
+      <Name>FemmeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonLib\JsonLib.csproj">
+      <Project>{ec06d3d5-b942-40f0-ae95-12cf8887d85c}</Project>
+      <Name>JsonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
