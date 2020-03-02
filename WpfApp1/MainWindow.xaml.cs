@@ -65,17 +65,10 @@ namespace WpfApp1
             ListFemme.IsEnabled = false;
             LabelFemme.Visibility = Visibility.Visible;
         }
-        private void createJson()
+        private void openAdmin_Click(object sender, RoutedEventArgs e)
         {
-            List<Femme> colFem = new List<Femme>();
-
-            colFem.Add(new Femme("Peppels", "Noémie", new DateTime(1999, 02, 16), "Le tyran"));
-            colFem.Add(new Femme("Loiseau", "Margaux", new DateTime(2001, 12, 26), "Le coup de plusieurs soirs"));
-
-            JsonSerializer serializer = new JsonSerializer();
-            string output = JsonConvert.SerializeObject(colFem);
-            using (StreamWriter writer = File.CreateText("data.json"))
-                serializer.Serialize(writer, output);
+            Admin test = new Admin();
+            test.Show();
         }
     }
 }
